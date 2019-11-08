@@ -7,12 +7,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
-       
-    }
+    constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
 
     clicked() {
-        this.http.get(this.baseUrl + 'Customer/GetCustomers').subscribe(result => {
+        this.http.get(this.baseUrl + 'Customer').subscribe(result => {
             this.customers = result;
         }, error => console.error(error));
     }

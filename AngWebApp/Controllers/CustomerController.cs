@@ -9,12 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AngWebApp.Controllers
 {
-    [Route("api/[controller]")]
-    public class CustomerController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class CustomerController : ControllerBase
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Customers> GetCustomers()
+        public List<Customers> Get()
         {
             return new Customers().GetCustomers();
         }
